@@ -212,3 +212,98 @@ Route::post('/cart/remove/{key}', function (string $key) {
         'Produk berhasil dihapus dari keranjang.'
     );
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Halaman Checkout
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/checkout', function () {
+
+    $cart = session()->get('cart', []);
+
+    if (empty($cart)) {
+        return redirect('/cart')->with(
+            'error',
+            'Keranjang kamu masih kosong.'
+        );
+    }
+
+    $total = 0;
+
+    foreach ($cart as $item) {
+        $total += $item['price_numeric'] * $item['quantity'];
+    }
+
+    return view('checkout', [
+        'cart' => $cart,
+        'total' => $total,
+    ]);
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Proses Checkout
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/checkout', function (Request $request) {
+
+    $cart = session()->get('cart', []);
+
+    if (empty($cart)) {
+        return redirect('/cart')->with(
+            'error',
+            'Keranjang kamu masih kosong.'
+        );
+    }
+
+    $validated = $request->validate([
+        'name' => 'required|string|max:100',
+        'email' => 'required|email|max:255',
+        'phone' => 'required|string|max:25',
+        'address' => 'required|string|max:1000',
+        'payment_method' => 'required|in:qris,bank_transfer,cod',
+    ]);
+
+    $total = 0;
+
+    foreach ($cart as $item) {
+        $total += $item['price_numeric'] * $item['quantity'];
+    }
+
+    $order = [
+        'order_number' => 'CL-' . now()->format('YmdHis')
+            . '-' . random_int(100, 999),
+        'customer' => $validated,
+        'items' => $cart,
+        'total' => $total,
+        'created_at' => now()->format('d-m-Y H:i'),
+    ];
+
+    session()->put('last_order', $order);
+    session()->forget('cart');
+
+    return redirect('/checkout/success');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Konfirmasi Pesanan
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/checkout/success', function () {
+
+    $order = session()->get('last_order');
+
+    abort_unless($order, 404);
+
+    return view('checkout-success', [
+        'order' => $order,
+    ]);
+});

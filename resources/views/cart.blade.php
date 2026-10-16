@@ -43,7 +43,7 @@
                             </p>
 
                             <h2>{{ $item['name'] }}</h2>
-                                       
+
 <p>Ukuran: {{ $item['size'] }}</p>
 
 <form
@@ -115,6 +115,9 @@
 
                 <a href="{{ url('/shop') }}" class="button-primary cart-continue">
                     Continue Shopping
+                </a>
+                <a href="{{ url('/checkout') }}" class="button-primary cart-continue">
+                    Proceed to Checkout
                 </a>
 
             </aside>
