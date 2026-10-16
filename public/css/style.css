@@ -4,14 +4,35 @@
 ======================================== */
 
 /* 1. Pengaturan dasar */
+
 :root {
-    --color-background: #f8f6f2;
-    --color-white: #ffffff;
-    --color-black: #20201e;
-    --color-muted: #77746f;
-    --color-accent: #b48b65;
-    --color-border: #e7e2da;
+    /* Core palette */
+    --ink: #0F1115;
+    --surface: #171A20;
+    --card: #1E222A;
+    --border: #2A2F39;
+    --outline: #3A404B;
+
+    /* Typography */
+    --text: #F2EFE9;
+    --muted: #B8B4AB;
+    --muted-2: #A9A59C;
+
+    /* Accent colors */
+    --champagne: #C8A96A;
+    --lime: #D4F24A;
+    --sambal: #FF7A59;
+    --moss: #6F7F4E;
+
+    /* Compatibility with existing CLOTHÉ CSS */
+    --color-background: var(--ink);
+    --color-white: var(--surface);
+    --color-black: var(--text);
+    --color-muted: var(--muted);
+    --color-accent: var(--champagne);
+    --color-border: var(--border);
 }
+
 
 * {
     margin: 0;
@@ -1266,4 +1287,93 @@ a {
     .shop-reset-link {
         align-self: flex-start;
     }
+}
+
+/* ========================================
+   CLOTHE - DARK EDITORIAL THEME
+======================================== */
+
+body {
+    background-color: var(--ink);
+    color: var(--text);
+}
+
+.site-header {
+    background-color: var(--surface);
+    border-bottom-color: var(--border);
+}
+
+.hero {
+    background:
+        linear-gradient(
+            110deg,
+            rgba(15, 17, 21, 0.97),
+            rgba(23, 26, 32, 0.72)
+        ),
+        linear-gradient(135deg, var(--card), var(--ink));
+    color: var(--text);
+}
+
+.hero-description {
+    color: var(--muted);
+}
+
+.eyebrow {
+    color: var(--champagne);
+}
+
+.button-primary {
+    background-color: var(--champagne);
+    color: var(--ink);
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.button-primary:hover {
+    background-color: var(--lime);
+    color: var(--ink);
+}
+
+.category-card {
+    color: var(--text);
+}
+
+.category-tops {
+    background: linear-gradient(135deg, var(--moss), var(--card));
+}
+
+.category-bottoms {
+    background: linear-gradient(135deg, var(--outline), var(--surface));
+}
+
+.product-tag {
+    background-color: var(--champagne);
+    color: var(--ink);
+}
+
+.product-image,
+.product-detail-image,
+.cart-item-image {
+    background-color: var(--card);
+}
+
+.site-footer {
+    background-color: var(--surface);
+    color: var(--text);
+    border-top: 1px solid var(--border);
+}
+
+.cart-alert {
+    background-color: var(--card);
+    color: var(--lime);
+    border: 1px solid var(--border);
+}
+
+.product-error,
+.checkout-error {
+    background-color: #2D201D;
+    color: #FFAD98;
+    border-color: #734638;
 }
