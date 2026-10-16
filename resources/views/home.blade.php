@@ -6,193 +6,133 @@
 @section('content')
 
 <!-- HERO EDITORIAL -->
+
 <section class="editorial-hero">
-
-    <div class="editorial-hero__content">
-
-        <div class="editorial-index">
-            <span>01</span>
-            <span>THE CLOTHÉ EDIT</span>
-            <span>2026</span>
-        </div>
-
-        <p class="editorial-eyebrow">
-            CONTEMPORARY ESSENTIALS
+    <div class="editorial-hero__copy">
+        <p class="editorial-hero__eyebrow">CLOTHÉ — NEW COLLECTION</p>
+        <h1>Wear it<br><em>your way.</em></h1>
+        <p class="editorial-hero__description">
+            Everyday essentials. Timeless character.
         </p>
+        <a href="{{ url('/shop') }}" class="editorial-hero__cta">
+            EXPLORE COLLECTION ↗
+        </a>
+    </div>
 
-        <h1>
-            Wear it<br>
-            your <em>way.</em>
-        </h1>
+    <div class="editorial-hero__media hero-carousel" id="heroCarousel">
+        <div class="hero-carousel__track">
 
-        <p class="editorial-description">
-            Everyday essentials, reimagined.
-            Discover clothing that speaks through
-            simplicity, character, and individuality.
-        </p>
+            <!-- FOTO 1 -->
+            <figure class="hero-carousel__slide is-active">
+                <div class="hero-flip-inner">
+                    <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi satu">
+                        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1400&q=85" alt="Fashion editorial look">
+                    </div>
+                    <div class="hero-flip-back">
+                        <div class="hero-flip-back__top">CLOTHÉ / 01</div>
+                        <div class="hero-flip-back__content">
+                            <p>THE EDITORIAL</p>
+                            <h2>Less noise.<br>More character.</h2>
+                            <p>Style that speaks without saying too much.</p>
+                            <a href="{{ url('/shop') }}" class="hero-flip-link">DISCOVER MORE ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </figure>
 
-        <div class="editorial-actions">
+            <!-- FOTO 2 -->
+            <figure class="hero-carousel__slide">
+                <div class="hero-flip-inner">
+                    <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi dua">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=85" alt="Essential T-shirt collection">
+                    </div>
+                    <div class="hero-flip-back">
+                        <div class="hero-flip-back__top">CLOTHÉ / 02</div>
+                        <div class="hero-flip-back__content">
+                            <p>THE ESSENTIALS</p>
+                            <h2>Made for<br>every day.</h2>
+                            <p>Comfortable staples for your everyday rotation.</p>
+                            <a href="{{ url('/shop') }}" class="hero-flip-link">SHOP ESSENTIALS ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </figure>
 
-            <a href="{{ url('/shop') }}" class="editorial-button">
-                Discover the collection
-                <span>↗</span>
-            </a>
+            <!-- FOTO 3 -->
+            <figure class="hero-carousel__slide">
+                <div class="hero-flip-inner">
+                    <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi tiga">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1400&q=85" alt="Oxford shirt collection">
+                    </div>
+                    <div class="hero-flip-back">
+                        <div class="hero-flip-back__top">CLOTHÉ / 03</div>
+                        <div class="hero-flip-back__content">
+                            <p>THE OXFORD</p>
+                            <h2>Classic<br>by nature.</h2>
+                            <p>A clean silhouette that works beyond the season.</p>
+                            <a href="{{ url('/shop') }}" class="hero-flip-link">DISCOVER SHIRTS ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </figure>
 
-            <a
-                href="{{ url('/shop?category=tops') }}"
-                class="editorial-text-link"
-            >
-                Explore tops
-            </a>
+            <!-- FOTO 4 -->
+            <figure class="hero-carousel__slide">
+                <div class="hero-flip-inner">
+                    <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi empat">
+                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1400&q=85" alt="Denim collection">
+                    </div>
+                    <div class="hero-flip-back">
+                        <div class="hero-flip-back__top">CLOTHÉ / 04</div>
+                        <div class="hero-flip-back__content">
+                            <p>THE DENIM</p>
+                            <h2>Built to<br>be worn.</h2>
+                            <p>Versatile denim for a wardrobe that lasts.</p>
+                            <a href="{{ url('/shop') }}" class="hero-flip-link">SHOP DENIM ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </figure>
+
+            <!-- FOTO 5 -->
+            <figure class="hero-carousel__slide">
+                <div class="hero-flip-inner">
+                    <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi lima">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=85" alt="Contemporary fashion look">
+                    </div>
+                    <div class="hero-flip-back">
+                        <div class="hero-flip-back__top">CLOTHÉ / 05</div>
+                        <div class="hero-flip-back__content">
+                            <p>THE NEW MOOD</p>
+                            <h2>Your style.<br>Your rules.</h2>
+                            <p>Find the pieces that feel like you.</p>
+                            <a href="{{ url('/shop') }}" class="hero-flip-link">EXPLORE SHOP ↗</a>
+                        </div>
+                    </div>
+                </div>
+            </figure>
 
         </div>
 
-        <div class="editorial-footnote">
-            <span>EVERYDAY UNIFORM</span>
-            <span>STYLE / NO. 001</span>
+        <div class="hero-carousel__shade"></div>
+
+        <div class="hero-carousel__caption">
+            <span id="heroCaption">THE EDITORIAL</span>
+            <span id="heroCounter">01 / 05</span>
         </div>
 
-    </div>
-
-    
-<div class="editorial-hero__media hero-carousel"
-     data-hero-carousel
-     aria-label="CLOTHÉ fashion collection">
-
-    <div class="hero-carousel__track" aria-live="polite">
-
-        <!-- LOOK 01: Editorial -->
-        <figure class="hero-carousel__slide is-active"
-                data-caption="A STUDY IN STYLE"
-                aria-hidden="false">
-            <img
-                src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1400&q=85"
-                alt="Editorial fashion look CLOTHÉ"
-                fetchpriority="high"
-            >
-        </figure>
-
-        <!-- LOOK 02: Essential Tee -->
-        <figure class="hero-carousel__slide"
-                data-caption="THE EVERYDAY LAYER"
-                aria-hidden="true">
-            <img
-                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=85"
-                alt="Essential Cotton Tee"
-                loading="lazy"
-            >
-        </figure>
-
-        <!-- LOOK 03: Oxford Shirt -->
-        <figure class="hero-carousel__slide"
-                data-caption="EASY STRUCTURE"
-                aria-hidden="true">
-            <img
-                src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=1400&q=85"
-                alt="Relaxed Oxford Shirt"
-                loading="lazy"
-            >
-        </figure>
-
-        <!-- LOOK 04: Denim -->
-        <figure class="hero-carousel__slide"
-                data-caption="DENIM, REDEFINED"
-                aria-hidden="true">
-            <img
-                src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1400&q=85"
-                alt="Straight Fit Denim"
-                loading="lazy"
-            >
-        </figure>
-
-        <!-- LOOK 05: Chino -->
-        <figure class="hero-carousel__slide"
-                data-caption="EVERYDAY FORM"
-                aria-hidden="true">
-            <img
-                src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=1400&q=85"
-                alt="Everyday Chino Pants"
-                loading="lazy"
-            >
-        </figure>
-
-    </div>
-
-    <div class="editorial-media-shade"></div>
-
-    <div class="editorial-vertical-label">
-        CLOTHÉ — CONTEMPORARY DRESSING
-    </div>
-
-    <div class="editorial-media-caption">
-        <span data-hero-index>FIG. 001</span>
-        <span data-hero-caption>A STUDY IN STYLE</span>
-    </div>
-
-    <div class="hero-carousel__controls">
-
-        <button type="button"
-                class="hero-carousel__arrow"
-                data-hero-prev
-                aria-label="Foto sebelumnya">
-            &#8592;
-        </button>
-
-        <div class="hero-carousel__dots"
-             aria-label="Pilih foto koleksi">
-
-            <button type="button"
-                    class="hero-carousel__dot is-active"
-                    data-hero-dot="0"
-                    aria-label="Tampilkan foto 1"
-                    aria-pressed="true"></button>
-
-            <button type="button"
-                    class="hero-carousel__dot"
-                    data-hero-dot="1"
-                    aria-label="Tampilkan foto 2"
-                    aria-pressed="false"></button>
-
-            <button type="button"
-                    class="hero-carousel__dot"
-                    data-hero-dot="2"
-                    aria-label="Tampilkan foto 3"
-                    aria-pressed="false"></button>
-
-            <button type="button"
-                    class="hero-carousel__dot"
-                    data-hero-dot="3"
-                    aria-label="Tampilkan foto 4"
-                    aria-pressed="false"></button>
-
-            <button type="button"
-                    class="hero-carousel__dot"
-                    data-hero-dot="4"
-                    aria-label="Tampilkan foto 5"
-                    aria-pressed="false"></button>
-
+        <div class="hero-carousel__controls">
+            <button type="button" class="hero-carousel__prev" aria-label="Foto sebelumnya">←</button>
+            <div class="hero-carousel__dots">
+                <button type="button" class="is-active" data-slide-to="0" aria-label="Foto 1"></button>
+                <button type="button" data-slide-to="1" aria-label="Foto 2"></button>
+                <button type="button" data-slide-to="2" aria-label="Foto 3"></button>
+                <button type="button" data-slide-to="3" aria-label="Foto 4"></button>
+                <button type="button" data-slide-to="4" aria-label="Foto 5"></button>
+            </div>
+            <button type="button" class="hero-carousel__next" aria-label="Foto berikutnya">→</button>
         </div>
-
-        <button type="button"
-                class="hero-carousel__arrow"
-                data-hero-next
-                aria-label="Foto berikutnya">
-            &#8594;
-        </button>
-
     </div>
-
-    <div class="editorial-stamp">
-        <span>C.</span>
-        <small>COLLECTION<br>NO. 01</small>
-    </div>
-
-</div>
-
-<script src="{{ asset('js/hero-slider.js') }}" defer></script>
-
-    </div>
-
 </section>
 
 

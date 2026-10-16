@@ -31,6 +31,6 @@
     <footer class="site-footer">
         <p>&copy; {{ date('Y') }} CLOTHÉ. All rights reserved.</p>
     </footer>
-
+<script src="{{ asset('js/hero-slider.js') }}" defer></script>
 </body>
 </html>
