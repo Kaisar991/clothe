@@ -6,6 +6,7 @@
 @section('content')
 
 <section class="shop-page">
+
     <div class="shop-heading">
         <p class="eyebrow">THE CLOTHÉ COLLECTION</p>
         <h1>Find Your Style</h1>
@@ -14,85 +15,124 @@
         </p>
     </div>
 
+    <!-- Form pencarian dan filter kategori -->
+    <form action="{{ url('/shop') }}" method="GET" class="shop-filter-form">
+
+        <input
+            type="search"
+            name="q"
+            value="{{ $search }}"
+            placeholder="Cari nama produk..."
+            aria-label="Cari nama produk"
+        >
+
+        <select name="category" aria-label="Pilih kategori">
+            <option value="" {{ $category === '' ? 'selected' : '' }}>
+                Semua Kategori
+            </option>
+
+            <option value="tops" {{ $category === 'tops' ? 'selected' : '' }}>
+                Tops
+            </option>
+
+            <option value="bottoms" {{ $category === 'bottoms' ? 'selected' : '' }}>
+                Bottoms
+            </option>
+        </select>
+
+        <button type="submit" class="button-primary">
+            Cari Produk
+        </button>
+
+        @if ($search !== '' || $category !== '')
+            <a href="{{ url('/shop') }}" class="shop-reset-link">
+                Reset
+            </a>
+        @endif
+
+    </form>
+
     <div class="shop-toolbar">
         <p>Our Collection</p>
-        <span>4 Products</span>
+
+        <span>
+            {{ $products->count() }}
+            {{ $products->count() === 1 ? 'Product' : 'Products' }}
+        </span>
     </div>
 
-    <div class="product-grid">
-@if (!request('category') || request('category') === 'tops')
-        <article class="product-card">
-            <div class="product-image">
-                <img
-                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85"
-                    alt="White essential cotton T-shirt"
-                >
-                <span class="product-tag">BESTSELLER</span>
-            </div>
-            <div class="product-info">
-                <p class="product-category">TOPS</p>
-                <h2>Essential Cotton Tee</h2>
-                <p class="product-price">Rp129.000</p>
-                <a class="product-link" href="{{ url('/product/essential-cotton-tee') }}">
-    View Details &rarr;
-</a>
-            </div>
-        </article>
+    @if ($products->isNotEmpty())
 
-        <article class="product-card">
-            <div class="product-image">
-                <img
-                    src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85"
-                    alt="Casual Oxford shirt"
-                >
-                <span class="product-tag">NEW</span>
-            </div>
-            <div class="product-info">
-                <p class="product-category">TOPS</p>
-                <h2>Relaxed Oxford Shirt</h2>
-                <p class="product-price">Rp249.000</p>
-                <a class="product-link" href="{{ url('/product/relaxed-oxford-shirt') }}">
-    View Details &rarr;
-</a>
-            </div>
-        </article>
-@endif 
-@if (!request('category') || request('category') === 'bottoms')
-        <article class="product-card">
-            <div class="product-image">
-                <img
-                    src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85"
-                    alt="Blue denim jeans"
-                >
-            </div>
-            <div class="product-info">
-                <p class="product-category">BOTTOMS</p>
-                <h2>Straight Fit Denim</h2>
-                <p class="product-price">Rp329.000</p>
-                <a class="product-link" href="{{ url('/product/straight-fit-denim') }}">
-    View Details &rarr;
-</a>
-            </div>
-        </article>
+        <div class="product-grid">
 
-        <article class="product-card">
-            <div class="product-image">
-                <img
-                    src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=85"
-                    alt="Casual trousers"
-                >
-            </div>
-            <div class="product-info">
-                <p class="product-category">BOTTOMS</p>
-                <h2>Everyday Chino Pants</h2>
-                <p class="product-price">Rp279.000</p>
-                <a class="product-link" href="{{ url('/product/everyday-chino-pants') }}">
-    View Details &rarr;
-</a>
-            </div>
-        </article>
-@endif
-    </div>
+            @foreach ($products as $product)
+
+                <article class="product-card">
+
+                    <div class="product-image">
+
+                        <a
+                            href="{{ url('/product/' . $product['slug']) }}"
+                            class="product-image-link"
+                        >
+                            <img
+                                src="{{ $product['image'] }}"
+                                alt="{{ $product['name'] }}"
+                                loading="lazy"
+                            >
+                        </a>
+
+                        @if ($product['slug'] === 'essential-cotton-tee')
+                            <span class="product-tag">BESTSELLER</span>
+                        @elseif ($product['slug'] === 'relaxed-oxford-shirt')
+                            <span class="product-tag">NEW</span>
+                        @endif
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <p class="product-category">
+                            {{ $product['category'] }}
+                        </p>
+
+                        <h2>{{ $product['name'] }}</h2>
+
+                        <p class="product-price">
+                            Rp{{ number_format($product['price_numeric'], 0, ',', '.') }}
+                        </p>
+
+                        <a
+                            href="{{ url('/product/' . $product['slug']) }}"
+                            class="product-link"
+                        >
+                            View Details &rarr;
+                        </a>
+
+                    </div>
+
+                </article>
+
+            @endforeach
+
+        </div>
+
+    @else
+
+        <div class="cart-empty">
+            <h2>Produk tidak ditemukan</h2>
+
+            <p>
+                Coba kata pencarian lain atau ubah kategori yang kamu pilih.
+            </p>
+
+            <a href="{{ url('/shop') }}" class="button-primary">
+                Lihat Semua Produk
+            </a>
+        </div>
+
+    @endif
+
 </section>
 
 @endsection

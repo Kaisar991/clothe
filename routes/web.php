@@ -66,9 +66,50 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/shop', function () {
-    return view('shop');
+
+Route::get('/shop', function (Request $request) use ($products) {
+
+    $search = trim((string) $request->query('q', ''));
+    $category = strtolower(
+        trim((string) $request->query('category', ''))
+    );
+
+    // Izinkan hanya kategori yang tersedia.
+    if (!in_array($category, ['', 'tops', 'bottoms'], true)) {
+        $category = '';
+    }
+
+    // Filter produk berdasarkan kata pencarian dan kategori.
+    $filteredProducts = collect($products)
+        ->filter(function ($product) use ($search, $category) {
+
+            $matchesCategory =
+                $category === ''
+                || strtolower($product['category']) === $category;
+
+            $searchText = $product['name'] . ' '
+                . $product['description'] . ' '
+                . $product['category'];
+
+            $matchesSearch =
+                $search === ''
+                || stripos($searchText, $search) !== false;
+
+            return $matchesCategory && $matchesSearch;
+        })
+        ->map(function ($product, $slug) {
+            $product['slug'] = $slug;
+            return $product;
+        })
+        ->values();
+
+    return view('shop', [
+        'products' => $filteredProducts,
+        'search' => $search,
+        'category' => $category,
+    ]);
 });
+
 
 
 /*
