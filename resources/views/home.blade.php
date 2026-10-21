@@ -26,7 +26,7 @@
             <figure class="hero-carousel__slide is-active">
                 <div class="hero-flip-inner">
                     <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi satu">
-                        <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1400&q=85" alt="Fashion editorial look">
+                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=85" alt="Fashion editorial look">
                     </div>
                     <div class="hero-flip-back">
                         <div class="hero-flip-back__top">CLOTHÉ / 01</div>
@@ -44,7 +44,7 @@
             <figure class="hero-carousel__slide">
                 <div class="hero-flip-inner">
                     <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi dua">
-                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=85" alt="Essential T-shirt collection">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1400&q=85" alt="Essential T-shirt collection">
                     </div>
                     <div class="hero-flip-back">
                         <div class="hero-flip-back__top">CLOTHÉ / 02</div>
@@ -62,7 +62,7 @@
             <figure class="hero-carousel__slide">
                 <div class="hero-flip-inner">
                     <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi tiga">
-                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1400&q=85" alt="Oxford shirt collection">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1400&q=85" alt="Oxford shirt collection">
                     </div>
                     <div class="hero-flip-back">
                         <div class="hero-flip-back__top">CLOTHÉ / 03</div>
@@ -80,7 +80,7 @@
             <figure class="hero-carousel__slide">
                 <div class="hero-flip-inner">
                     <div class="hero-flip-front" data-hero-flip role="button" tabindex="0" aria-label="Balik foto koleksi empat">
-                        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1400&q=85" alt="Denim collection">
+                        <img src="https://images.unsplash.com/photo-1771919371651-04d6ec4c239a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Denim collection">
                     </div>
                     <div class="hero-flip-back">
                         <div class="hero-flip-back__top">CLOTHÉ / 04</div>
@@ -165,6 +165,73 @@
 
 </section>
 
+<!-- COLLECTION CATEGORIES -->
+<section class="home-collections">
+    
+<!-- CLOTHÉ STACKED FASHION SLIDER -->
+<section class="clothe-stack" id="clotheStack">
+
+    <div class="clothe-stack__heading">
+        <p class="editorial-eyebrow">CLOTHÉ / VISUAL JOURNAL</p>
+        <h2>Wear it <em>your way.</em></h2>
+    </div>
+
+    <div class="clothe-stack__stage" aria-label="Fashion editorial carousel">
+
+        <div class="clothe-stack__cards">
+
+            <button class="clothe-stack__card" data-slide="0"
+                aria-label="Lihat fashion look 1">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+                    alt="Contemporary streetwear editorial" loading="lazy">
+                <span class="clothe-stack__number">01 / THE EDITORIAL</span>
+            </button>
+
+            <button class="clothe-stack__card" data-slide="1"
+                aria-label="Lihat fashion look 2">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
+                    alt="Modern everyday fashion look" loading="lazy">
+                <span class="clothe-stack__number">02 / THE NEW MOOD</span>
+            </button>
+
+            <button class="clothe-stack__card" data-slide="2"
+                aria-label="Lihat fashion look 3">
+                <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=900&q=85"
+                    alt="Minimal streetwear outfit" loading="lazy">
+                <span class="clothe-stack__number">03 / EVERYDAY ESSENTIALS</span>
+            </button>
+
+            <button class="clothe-stack__card" data-slide="3"
+                aria-label="Lihat fashion look 4">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
+                    alt="Fashion collection inspiration" loading="lazy">
+                <span class="clothe-stack__number">04 / PERSONAL STYLE</span>
+            </button>
+
+            <button class="clothe-stack__card" data-slide="4"
+                aria-label="Lihat fashion look 5">
+                <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=900&q=85"
+                    alt="Contemporary clothing editorial" loading="lazy">
+                <span class="clothe-stack__number">05 / THE COLLECTION</span>
+            </button>
+
+        </div>
+
+        <button class="clothe-stack__control clothe-stack__prev"
+            type="button" aria-label="Foto sebelumnya">←</button>
+
+        <button class="clothe-stack__control clothe-stack__next"
+            type="button" aria-label="Foto berikutnya">→</button>
+
+    </div>
+
+    <div class="clothe-stack__footer">
+        <span>LESS NOISE. MORE CHARACTER.</span>
+        <a href="{{ url('/shop') }}">EXPLORE THE COLLECTION ↗</a>
+    </div>
+
+</section>
+
 
 <!-- COLLECTION CATEGORIES -->
 <section class="home-collections">
@@ -190,7 +257,7 @@
         >
 
             <img
-                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85"
+                src="https://i.pinimg.com/736x/6b/41/ee/6b41ee4a196e8ee0d0ab67490aa40737.jpg"
                 alt="Essential cotton T-shirt collection"
                 loading="lazy"
             >
@@ -218,7 +285,7 @@
         >
 
             <img
-                src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1000&q=85"
+                src="https://i.pinimg.com/1200x/f0/5f/1e/f05f1e481ecc335b7ecf1d0eccd7f816.jpg"
                 alt="Classic denim trousers collection"
                 loading="lazy"
             >
@@ -246,6 +313,60 @@
         <span>BUILT AROUND YOUR EVERYDAY</span>
     </div>
 
+</section>
+
+<!-- THE CLOTHÉ PHILOSOPHY -->
+<section class="brand-philosophy">
+    <div class="brand-philosophy__heading">
+        <p class="editorial-eyebrow">WHAT WE BELIEVE</p>
+        <h2>Style is personal.<br><em>Make it yours.</em></h2>
+        <p>
+            We believe everyday fashion should feel effortless,
+            expressive, and true to who you are.
+        </p>
+    </div>
+
+    <div class="brand-philosophy__values">
+        <article class="philosophy-item">
+            <span>01 / STYLE</span>
+            <h3>Made to Mix.</h3>
+            <p>
+                Pieces designed to work together and fit naturally
+                into your everyday wardrobe.
+            </p>
+        </article>
+
+        <article class="philosophy-item">
+            <span>02 / EXPRESSION</span>
+            <h3>Own Your Look.</h3>
+            <p>
+                Your style is your own. Find the pieces that reflect
+                your personality and mood.
+            </p>
+        </article>
+
+        <article class="philosophy-item">
+            <span>03 / EVERYDAY</span>
+            <h3>Less, but Better.</h3>
+            <p>
+                A considered approach to everyday dressing,
+                with versatility at its core.
+            </p>
+        </article>
+    </div>
+</section>
+
+<!-- CLOSING STATEMENT -->
+<section class="home-closing">
+    <p class="editorial-eyebrow">CLOTHÉ / YOUR EVERYDAY EDIT</p>
+    <h2>Make it <em>yours.</em></h2>
+    <p>
+        Discover your next everyday favourite
+        and create a style that feels like you.
+    </p>
+    <a href="{{ url('/shop') }}" class="editorial-hero__cta">
+        EXPLORE THE COLLECTION ↗
+    </a>
 </section>
 
 @endsection

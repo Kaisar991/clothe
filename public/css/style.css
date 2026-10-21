@@ -2107,3 +2107,935 @@ body {
 .hero-flip-back {
     border-radius: 28px;
 }
+
+
+/* ========================================
+   CLOTHÉ PHILOSOPHY
+======================================== */
+
+.brand-philosophy {
+    padding: 100px 7%;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand-philosophy__heading {
+    max-width: 680px;
+    margin-bottom: 65px;
+}
+
+.brand-philosophy__heading h2,
+.home-closing h2 {
+    margin-bottom: 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 6vw, 76px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.brand-philosophy__heading h2 em,
+.home-closing h2 em {
+    color: var(--champagne);
+    font-weight: 400;
+}
+
+.brand-philosophy__heading > p:last-child,
+.home-closing > p:not(.editorial-eyebrow) {
+    max-width: 470px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.brand-philosophy__values {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--border);
+}
+
+.philosophy-item {
+    padding: 28px 24px 10px 0;
+}
+
+.philosophy-item + .philosophy-item {
+    padding-left: 24px;
+    border-left: 1px solid var(--border);
+}
+
+.philosophy-item > span {
+    color: var(--champagne);
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+.philosophy-item h3 {
+    margin: 22px 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(23px, 2.5vw, 32px);
+    font-weight: 400;
+}
+
+.philosophy-item p {
+    max-width: 290px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* ========================================
+   HOME CLOSING STATEMENT
+======================================== */
+
+.home-closing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 7%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(200, 169, 106, 0.09),
+            transparent 65%
+        ),
+        var(--ink);
+    text-align: center;
+}
+
+.home-closing .editorial-eyebrow {
+    margin-bottom: 22px;
+}
+
+.home-closing h2 {
+    margin-bottom: 18px;
+}
+
+.home-closing > p:not(.editorial-eyebrow) {
+    margin-bottom: 28px;
+}
+
+.home-closing .editorial-hero__cta {
+    margin-top: 4px;
+}
+
+/* Responsive untuk bagian baru */
+@media (max-width: 640px) {
+    .brand-philosophy {
+        padding: 65px 6%;
+    }
+
+    .brand-philosophy__heading {
+        margin-bottom: 38px;
+    }
+
+    .brand-philosophy__heading h2,
+    .home-closing h2 {
+        font-size: clamp(40px, 11vw, 58px);
+        letter-spacing: -1.5px;
+    }
+
+    .brand-philosophy__values {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-item,
+    .philosophy-item + .philosophy-item {
+        padding: 24px 0;
+        border-left: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .philosophy-item h3 {
+        margin-top: 14px;
+    }
+
+    .home-closing {
+        padding: 70px 6%;
+    }
+}
+
+/* ========================================
+   CLOTHÉ — MICRO INTERACTIONS
+======================================== */
+
+/* Kartu kategori bergerak sedikit saat diarahkan */
+.collection-card {
+    transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Filosofi brand lebih hidup saat diarahkan */
+.philosophy-item {
+    position: relative;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.philosophy-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background: var(--champagne);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.philosophy-item:hover {
+    transform: translateY(-4px);
+}
+
+.philosophy-item:hover::before {
+    transform: scaleX(1);
+}
+
+/* Tombol terasa lebih responsif */
+.editorial-hero__cta {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.editorial-hero__cta:hover {
+    box-shadow: 0 8px 24px rgba(200, 169, 106, 0.12);
+}
+
+/* Scroll reveal: aktif hanya jika JavaScript tersedia */
+html.js-reveal .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+html.js-reveal .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hormati preferensi pengguna yang mengurangi animasi */
+@media (prefers-reduced-motion: reduce) {
+    html.js-reveal .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .collection-card,
+    .philosophy-item,
+    .philosophy-item::before,
+    .editorial-hero__cta {
+        transition: none;
+    }
+
+    .collection-card:hover,
+    .philosophy-item:hover {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   CLOTHÉ — MOBILE HAMBURGER NAVIGATION
+======================================== */
+
+.mobile-menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 17px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Ikon berubah menjadi X ketika menu terbuka */
+.mobile-menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+.mobile-menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+
+@media (max-width: 768px) {
+    .site-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        align-items: center;
+        gap: 12px;
+        position: relative;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .cart-link {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    /* Menu tetap ada agar transisi bisa berjalan */
+    .navigation {
+        display: flex;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        max-height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        pointer-events: none;
+
+        border-top: 1px solid transparent;
+
+        transition:
+            max-height 0.45s ease,
+            opacity 0.3s ease,
+            transform 0.35s ease,
+            padding 0.35s ease,
+            visibility 0.35s;
+    }
+
+    /* Kondisi saat menu dibuka */
+    .navigation.is-open {
+        max-height: 320px;
+        padding: 10px 0 12px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        border-top-color: var(--border);
+    }
+
+    .navigation a {
+        display: block;
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--border);
+        opacity: 0;
+        transform: translateY(-6px);
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .navigation.is-open a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Link muncul bergantian */
+    .navigation.is-open a:nth-child(1) {
+        transition-delay: 0.08s;
+    }
+
+    .navigation.is-open a:nth-child(2) {
+        transition-delay: 0.13s;
+    }
+
+    .navigation.is-open a:nth-child(3) {
+        transition-delay: 0.18s;
+    }
+
+    .navigation.is-open a:nth-child(4) {
+        transition-delay: 0.23s;
+    }
+
+    .navigation a:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navigation,
+    .navigation a,
+    .mobile-menu-toggle span {
+        transition: none !important;
+    }
+}
+
+
+
+/* ========================================
+   CLOTHÉ — NAVBAR POLISH (SAFE OVERRIDES)
+   Menjaga struktur dan interaksi navbar yang sudah ada
+======================================== */
+.site-header {
+    position: relative;
+    z-index: 100;
+    background-color: rgba(23, 26, 32, 0.96);
+    border-bottom: 1px solid rgba(200, 169, 106, 0.18);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+/* Aksen kecil tanpa perlu mengubah HTML logo */
+.logo::after {
+    content: ".";
+    color: var(--champagne);
+}
+
+.navigation a {
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.25s ease;
+}
+
+.navigation a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    left: 0;
+    height: 1px;
+    background-color: var(--champagne);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.28s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    color: var(--champagne);
+}
+
+.navigation a:hover::after,
+.navigation a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.cart-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 9px 22px;
+    border: 1px solid var(--outline);
+    border-radius: 999px;
+    color: var(--text);
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.cart-link:hover,
+.cart-link:focus-visible {
+    border-color: var(--champagne);
+    background-color: rgba(200, 169, 106, 0.08);
+    color: var(--champagne);
+    transform: translateY(-1px);
+}
+
+.mobile-menu-toggle {
+    border-color: var(--outline);
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus-visible {
+    border-color: var(--champagne);
+    background-color: rgba(200, 169, 106, 0.07);
+}
+
+@media (max-width: 768px) {
+    .navigation a::after {
+        display: none;
+    }
+
+    .navigation a {
+        padding: 14px 4px;
+    }
+
+    .cart-link {
+        min-height: 40px;
+        padding: 8px 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo,
+    .navigation a,
+    .navigation a::after,
+    .cart-link,
+    .mobile-menu-toggle {
+        transition: none !important;
+    }
+}
+
+
+/* ========================================
+   CLOTHE PRODUCT EDITORIAL
+======================================== */
+
+.clothe-edit {
+    padding: 100px 6%;
+    background: var(--ink);
+    color: var(--text);
+}
+
+.clothe-edit__heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 36px;
+}
+
+.clothe-edit__heading h2 {
+    margin: 12px 0 0;
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+}
+
+.clothe-edit__heading h2 em {
+    color: var(--champagne);
+    font-weight: 400;
+}
+
+.clothe-edit__grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.clothe-edit__item {
+    position: relative;
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.clothe-edit__item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    transition: transform 0.65s cubic-bezier(.2, .7, .2, 1);
+}
+
+.clothe-edit__item:hover img {
+    transform: scale(1.045);
+}
+
+.clothe-edit__item::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(15, 17, 21, 0.28)
+    );
+}
+
+.clothe-edit__caption {
+    position: absolute;
+    z-index: 1;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+}
+
+.clothe-edit__arrow {
+    color: var(--champagne);
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+}
+
+.clothe-edit__item:hover .clothe-edit__arrow {
+    transform: translate(3px, -3px);
+}
+
+.clothe-edit__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted-2);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .clothe-edit {
+        padding: 64px 5%;
+    }
+
+    .clothe-edit__heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .clothe-edit__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .clothe-edit__item--large {
+        grid-column: 1 / -1;
+    }
+
+    .clothe-edit__item--large img {
+        aspect-ratio: 5 / 4;
+    }
+
+    .clothe-edit__caption {
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.6rem;
+    }
+
+    .clothe-edit__footer {
+        flex-direction: column;
+        font-size: 0.62rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .clothe-edit__item img,
+    .clothe-edit__arrow {
+        transition: none;
+    }
+}
+
+
+/* ========================================
+   CLOTHE STACKED FASHION SLIDER
+======================================== */
+
+.clothe-stack {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 90px 6% 55px;
+    color: var(--text);
+    background: transparent;
+}
+
+.clothe-stack::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    background-image:
+        radial-gradient(circle at 20% 35%, rgba(200,169,106,.13), transparent 32%),
+        radial-gradient(circle at 80% 60%, rgba(184,180,171,.10), transparent 35%),
+        radial-gradient(rgba(242,239,233,.18) .5px, transparent .8px);
+    background-size: auto, auto, 5px 5px;
+}
+
+.clothe-stack__heading {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.clothe-stack__heading h2 {
+    margin: 12px 0 0;
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    letter-spacing: -.05em;
+    line-height: 1.05;
+}
+
+.clothe-stack__heading h2 em {
+    color: var(--champagne);
+    font-weight: 400;
+}
+
+.clothe-stack__stage {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: clamp(340px, 46vw, 500px);
+    margin: 0 auto;
+}
+
+.clothe-stack__cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1200px;
+}
+
+.clothe-stack__card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: clamp(155px, 27%, 260px);
+    height: 82%;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(242,239,233,.3);
+    border-radius: 7px;
+    background: rgba(242,239,233,.08);
+    color: var(--text);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition:
+        transform .75s cubic-bezier(.22,.7,.2,1),
+        opacity .65s ease,
+        filter .65s ease,
+        box-shadow .65s ease;
+    will-change: transform;
+}
+
+.clothe-stack__card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.88) brightness(.94);
+    transition: filter .65s ease, transform .8s ease;
+}
+
+.clothe-stack__card::after {
+    content: "";
+    position: absolute;
+    inset: 35% 0 0;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(15,17,21,.42)
+    );
+}
+
+.clothe-stack__number {
+    position: absolute;
+    z-index: 1;
+    right: 12px;
+    bottom: 14px;
+    left: 12px;
+    text-align: left;
+    font-size: .62rem;
+    letter-spacing: .1em;
+    color: #F2EFE9;
+}
+
+.clothe-stack__card.is-center {
+    z-index: 5;
+    opacity: 1;
+    filter: none;
+    box-shadow: 0 18px 55px rgba(0,0,0,.17);
+}
+
+.clothe-stack__card.is-center img {
+    filter: saturate(1) brightness(1);
+}
+
+.clothe-stack__card.is-left-1 {
+    z-index: 4;
+    opacity: .92;
+    transform: translate(calc(-50% - 110px), -50%) scale(.91);
+}
+
+.clothe-stack__card.is-right-1 {
+    z-index: 4;
+    opacity: .92;
+    transform: translate(calc(-50% + 110px), -50%) scale(.91);
+}
+
+.clothe-stack__card.is-left-2 {
+    z-index: 3;
+    opacity: .78;
+    transform: translate(calc(-50% - 190px), -50%) scale(.80);
+}
+
+.clothe-stack__card.is-right-2 {
+    z-index: 3;
+    opacity: .78;
+    transform: translate(calc(-50% + 190px), -50%) scale(.80);
+}
+
+.clothe-stack__card.is-hidden {
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(.68);
+}
+
+.clothe-stack__control {
+    position: absolute;
+    z-index: 8;
+    top: 50%;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid var(--outline);
+    border-radius: 50%;
+    background: rgba(23,26,32,.5);
+    color: var(--text);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: border-color .25s ease, color .25s ease;
+}
+
+.clothe-stack__control:hover {
+    border-color: var(--champagne);
+    color: var(--champagne);
+}
+
+.clothe-stack__prev {
+    left: 1%;
+}
+
+.clothe-stack__next {
+    right: 1%;
+}
+
+.clothe-stack__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 1000px;
+    margin: 20px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: .68rem;
+    letter-spacing: .1em;
+    color: var(--muted);
+}
+
+.clothe-stack__footer a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.clothe-stack__footer a:hover {
+    color: var(--champagne);
+}
+
+@media (max-width: 768px) {
+    .clothe-stack {
+        padding: 65px 4% 40px;
+    }
+
+    .clothe-stack__stage {
+        height: 350px;
+    }
+
+    .clothe-stack__card {
+        width: 43%;
+        height: 76%;
+    }
+
+    .clothe-stack__card.is-left-1 {
+        transform: translate(calc(-50% - 55px), -50%) scale(.88);
+    }
+
+    .clothe-stack__card.is-right-1 {
+        transform: translate(calc(-50% + 55px), -50%) scale(.88);
+    }
+
+    .clothe-stack__card.is-left-2 {
+        transform: translate(calc(-50% - 95px), -50%) scale(.76);
+    }
+
+    .clothe-stack__card.is-right-2 {
+        transform: translate(calc(-50% + 95px), -50%) scale(.76);
+    }
+
+    .clothe-stack__control {
+        top: auto;
+        bottom: -4px;
+        width: 36px;
+        height: 36px;
+        transform: none;
+    }
+
+    .clothe-stack__prev {
+        left: 8%;
+    }
+
+    .clothe-stack__next {
+        right: 8%;
+    }
+
+    .clothe-stack__footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: .6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .clothe-stack__card,
+    .clothe-stack__card img,
+    .clothe-stack__control {
+        transition: none;
+    }
+}
